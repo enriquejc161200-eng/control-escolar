@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_enrollments",
+  "info": {
+    "singularName": "course-enrollment",
+    "pluralName": "course-enrollments",
+    "displayName": "Inscripción a materia"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "required": true
+    },
+    "subject": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subject.subject",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "enrolled", "passed", "failed", "withdrawn"],
+      "default": "pending",
+      "required": true
+    },
+    "grade": {
+      "type": "decimal",
+      "min": 0,
+      "max": 10
+    },
+    "ordinaryGrade": {
+      "type": "decimal",
+      "min": 0,
+      "max": 10
+    },
+    "extraGrade": {
+      "type": "decimal",
+      "min": 0,
+      "max": 10
+    },
+    "titleGrade": {
+      "type": "decimal",
+      "min": 0,
+      "max": 10
+    },
+    "withdrawalRequested": {
+      "type": "boolean",
+      "default": false
+    },
+    "withdrawalReason": {
+      "type": "enumeration",
+      "enum": ["falta_de_tiempo", "falta_de_conocimiento", "otro"]
+    },
+    "attempt": {
+      "type": "integer",
+      "min": 1,
+      "default": 1,
+      "required": true
+    },
+    "semester": {
+      "type": "integer",
+      "min": 1,
+      "max": 999
+    },
+    "requestBatch": {
+      "type": "string"
+    },
+    "advancesSemester": {
+      "type": "boolean",
+      "default": false
+    },
+    "countsTowardProgress": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "semesterAdvanced": {
+      "type": "boolean",
+      "default": false
+    },
+    "schedule": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

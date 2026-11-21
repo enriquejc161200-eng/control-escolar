@@ -1,0 +1,20 @@
+# Dependencies
+**/node_modules/
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local build and tool output
+my-app/.expo/
+my-app/dist/
+my-app/web-build/
+backend/.strapi/
+backend/dist/
+backend/build/
+backend/.tmp/
+**/coverage/
+
+# OS files
+.DS_Store
